@@ -1,0 +1,8 @@
+{
+  "name": "Spin and Win",
+  "description": "A high-converting Spin & Win landing page with an integrated dashboard and admin control system using Firebase.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}

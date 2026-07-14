@@ -1,0 +1,21 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // App Config & Stats: Readable by anyone, writable by authenticated users (or admins)
+    match /config/{document} {
+      allow read: if true;
+      allow write: if request.auth != null;
+    }
+    
+    match /counters/{document} {
+      allow read: if true;
+      allow write: if request.auth != null;
+    }
+
+    // User Profiles: Readable by anyone or admin, writable by the owner or admin
+    match /users/{userId} {
+      allow read: if true;
+      allow write: if request.auth != null && (request.auth.uid == userId || request.auth.token.email == 'rouinmajhi@gmail.com');
+    }
+  }
+}
